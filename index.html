@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional online code editor with live preview - Write HTML, CSS, and JavaScript in real-time">
+    <title>✨ Live Code Editor | HTML CSS JS Playground</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">Live Code Editor</span>
+            </div>
+            <div class="header-actions">
+                <button id="resetBtn" class="action-btn" title="Reset to default">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                    </svg>
+                    Reset
+                </button>
+                <button id="downloadBtn" class="action-btn" title="Download as HTML">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download
+                </button>
+                <button id="fullscreenBtn" class="action-btn" title="Fullscreen Preview">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Editor Area -->
+        <div class="main-editor">
+            <!-- Code Panels -->
+            <div class="panels-container">
+                <!-- HTML Panel -->
+                <div class="panel panel-html">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="panel-icon">📄</span>
+                            <span>HTML</span>
+                        </div>
+                        <div class="panel-controls">
+                            <button class="copy-btn" data-code="html" title="Copy HTML">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                            </button>
+                            <button class="expand-btn" data-panel="html">−</button>
+                        </div>
+                    </div>
+                    <div class="editor-container">
+                        <textarea id="htmlCode" class="code-editor" spellcheck="false"></textarea>
+                    </div>
+                </div>
+
+                <!-- CSS Panel -->
+                <div class="panel panel-css">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="panel-icon">🎨</span>
+                            <span>CSS</span>
+                        </div>
+                        <div class="panel-controls">
+                            <button class="copy-btn" data-code="css" title="Copy CSS">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                            </button>
+                            <button class="expand-btn" data-panel="css">−</button>
+                        </div>
+                    </div>
+                    <div class="editor-container">
+                        <textarea id="cssCode" class="code-editor" spellcheck="false"></textarea>
+                    </div>
+                </div>
+
+                <!-- JavaScript Panel -->
+                <div class="panel panel-js">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="panel-icon">⚡</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="panel-controls">
+                            <button class="copy-btn" data-code="js" title="Copy JS">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                            </button>
+                            <button class="expand-btn" data-panel="js">−</button>
+                        </div>
+                    </div>
+                    <div class="editor-container">
+                        <textarea id="jsCode" class="code-editor" spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="preview-container">
+                <div class="preview-header">
+                    <div class="preview-title">
+                        <span class="preview-icon">👁️</span>
+                        <span>Live Preview</span>
+                    </div>
+                    <div class="preview-actions">
+                        <span class="auto-refresh-badge">⚡ Auto-refresh</span>
+                        <button id="refreshPreview" class="refresh-btn" title="Manual Refresh">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                            </svg>
+                        </button>
+                        <button id="openNewTab" class="refresh-btn" title="Open in new tab">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="preview-frame-wrapper">
+                    <iframe id="previewFrame" class="preview-frame" title="Live Preview" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"></iframe>
+                    <div id="previewOverlay" class="preview-overlay" style="display: none;">
+                        <div class="error-message">
+                            <span class="error-icon">⚠️</span>
+                            <span id="errorText">Error in code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-left">
+                <span>✨ Live updates as you type</span>
+                <span>•</span>
+                <span>📱 Responsive preview</span>
+            </div>
+            <div class="footer-right">
+                <span id="lastUpdate">Ready</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Example Templates Dropdown (hidden by default, accessible via button) -->
+    <div class="templates-menu" id="templatesMenu" style="display: none;">
+        <div class="template-item" data-template="default">Default Starter</div>
+        <div class="template-item" data-template="gradient">Gradient Background</div>
+        <div class="template-item" data-template="card">Modern Card</div>
+        <div class="template-item" data-template="animation">CSS Animation</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
