@@ -9,7 +9,7 @@
 ![Status](htps://tomatoautomation.com)
 ![License](htps://tomatoautomation.com)
 
-![Live Code Editor Demo](htps://tomatoautomation.com)
+![Live Code Editor Demo](https://tomato-automation.github.io/LiveCodeEditor/)
 
 ## 🚀 Live Demo
 
