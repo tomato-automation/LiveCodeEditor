@@ -2,12 +2,14 @@
 
 ### Write HTML, CSS, and JavaScript in real-time with instant preview
 
-![Version](htps://tomatoautomation.com)
-![HTML5](htps://tomatoautomation.com)
-![CSS3](htps://tomatoautomation.com)
-![JavaScript](htps://tomatoautomation.com)
-![Status](htps://tomatoautomation.com)
-![License](htps://tomatoautomation.com)
+# [https://tomato-automation.github.io/LiveCodeEditor/]
+
+![Version]
+![HTML5]
+![CSS3]
+![JavaScript]
+![Status]
+![License]
 
 ![Live Code Editor Demo](https://tomato-automation.github.io/LiveCodeEditor/)
 
